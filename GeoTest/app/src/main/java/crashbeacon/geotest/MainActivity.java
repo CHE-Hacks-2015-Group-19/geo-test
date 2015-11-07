@@ -28,21 +28,16 @@ public class MainActivity extends Activity implements LocationListener {
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, false);
 
-        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    public void requestPermissions(@NonNull String[] permissions, int requestCode)
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
-            return;
-        }
+        Log.d("here", "hello");
         Location location = locationManager.getLastKnownLocation(provider);
+        Log.d("loc", location.toString());
 
         // Initialize the location fields
         if (location != null) {
             onLocationChanged(location);
+        }
+        else{
+            Log.d("break", "broke");
         }
     }
     @Override
