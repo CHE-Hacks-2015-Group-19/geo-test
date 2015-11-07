@@ -42,8 +42,8 @@ public class MainActivity extends Activity implements LocationListener {
     }
     @Override
     public void onLocationChanged(Location location) {
-        int lat = (int) (location.getLatitude());
-        int lng = (int) (location.getLongitude());
+        double lat =  (location.getLatitude());
+        double lng =  (location.getLongitude());
         Log.d("Lng", String.valueOf(lng));
         Log.d("Lat", String.valueOf(lat));
     }
